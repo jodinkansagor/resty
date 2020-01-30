@@ -7,5 +7,7 @@ const Button = ({ onSubmit, buttonName}) => (
 
 Button.PropTypes = {
   onSubmit: PropTypes.func.isRequired,
-  button
-}
+  buttonName: PropTypes.string.isRequired
+};
+
+export default Button;

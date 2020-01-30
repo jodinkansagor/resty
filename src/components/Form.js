@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Radio from '../components/Radio';
+import Button from '../components/Button';
 
 
 const Form = ({ onSubmit, url, textInput, onChange }) => (
@@ -15,10 +17,11 @@ const Form = ({ onSubmit, url, textInput, onChange }) => (
   </form>
 );
 
-Form.PropTypes = {
+Form.propTypes = {
   url: PropTypes.string.isRequired,
   textInput: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired
 };
 
+export default Form;
