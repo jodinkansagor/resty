@@ -1,6 +1,6 @@
 import React from 'react';
-import Form from '../components/Form';
+import RestyContainer from '../containers/RestyContainer';
 
 export default function App() {
-  return <Form />;
+  return <RestyContainer />;
 }
