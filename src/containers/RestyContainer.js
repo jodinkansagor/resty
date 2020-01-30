@@ -11,7 +11,7 @@ export default class RestyContainer extends Component {
     password: '',
     bearerToken: '',
     method: '',
-    historyList: [{ method: 'GET', historyUrl: 'www.jbj.com' }],
+    historyList: [],
   }
 
   handleChange = ({ target }) => {
@@ -24,11 +24,18 @@ export default class RestyContainer extends Component {
     }
   }
 
-  // handleSubmit = event => {
-  //   event.preventDefault();
+  handleSubmit = event => {
+    event.preventDefault();
 
-  //   this.setState()
-  // }
+    this.setState(state => ({
+      historyList: [
+        ...state.historyList, {
+          method: state.method,
+          url: state.url
+        }
+      ]
+    }));
+  }
 
   render() {
     const { url, method, textInput, userName, password, bearerToken, historyList
@@ -43,7 +50,7 @@ export default class RestyContainer extends Component {
           password={password}
           method={method}
           bearerToken={bearerToken}
-          onSumbit={this.handleSubmit}
+          onSubmit={this.handleSubmit}
           onChange={this.handleChange}  
         />
         <HistoryList historyList={historyList}/>
