@@ -5,16 +5,19 @@ import Form from '../components/Form';
 export default class RestyContainer extends Component {
   state = {
 
+  }
 
+  handleChange() {
+    
+  }
 
-    render() {
-      const {} = this.state;
+  render() {
+    const { } = this.state;
 
-      return (
-        <>
-          <Form />
-        </>
-      )
-    }
+    return (
+      <>
+        <Form />
+      </>
+    )
   }
 }

@@ -5,7 +5,7 @@ const Button = ({ onSubmit, buttonName}) => (
 <button onSubmit={onSubmit}>{buttonName}</button>
 );
 
-Button.PropTypes = {
+Button.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   buttonName: PropTypes.string.isRequired
 };
