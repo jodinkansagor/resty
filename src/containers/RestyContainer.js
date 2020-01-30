@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Form from '../components/Form';
+import HistoryList from '../components/HistoryList';
 
 
 export default class RestyContainer extends Component {
@@ -10,7 +11,7 @@ export default class RestyContainer extends Component {
     password: '',
     bearerToken: '',
     method: '',
-    // fetchCalls=[],
+    historyList: [{ method: 'GET', historyUrl: 'www.jbj.com' }],
   }
 
   handleChange = ({ target }) => {
@@ -30,7 +31,7 @@ export default class RestyContainer extends Component {
   // }
 
   render() {
-    const { url, method, textInput, userName, password, bearerToken
+    const { url, method, textInput, userName, password, bearerToken, historyList
     } = this.state;
     return (
       
@@ -45,6 +46,7 @@ export default class RestyContainer extends Component {
           onSumbit={this.handleSubmit}
           onChange={this.handleChange}  
         />
+        <HistoryList historyList={historyList}/>
       </>
     );
   }
