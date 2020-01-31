@@ -7,9 +7,9 @@ const Form = ({ onSubmit, url, textInput, onChange, userName, password, bearerTo
   
   <form onSubmit={onSubmit}>
     <input type="text" placeholder="URL" value={url} name="url" onChange={onChange} />
-    <label>GET<input type="radio" name="method" value="get" onChange={onChange}></input></label>
-    <label>POST<input type="radio" name="method" value="post" onChange={onChange}></input></label>
-    <label>PATCH<input type="radio" name="method" value="patch" onChange={onChange}></input></label>
+    <label>GET<input type="radio" name="method" value="GET" onChange={onChange}></input></label>
+    <label>POST<input type="radio" name="method" value="POST" onChange={onChange}></input></label>
+    <label>PATCH<input type="radio" name="method" value="PATCH" onChange={onChange}></input></label>
     <label>PUT<input type="radio" name="method" value="put" onChange={onChange}></input></label>
     <label>DELETE<input type="radio" name="method" value="delete" onChange={onChange}></input></label>
     <button>GO</button>

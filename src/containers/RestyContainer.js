@@ -31,7 +31,7 @@ export default class RestyContainer extends Component {
     let headers;
     let body;
 
-    if (this.state.method === 'post' || this.state.method === 'put' || this.state.method === 'patch' || this.state.method === 'delete') {
+    if (this.state.method === 'POST' || this.state.method === 'put' || this.state.method === 'PATCH') {
       headers = { 'Content-Type': 'application/json' };
       body = this.state.textInput;
     }
