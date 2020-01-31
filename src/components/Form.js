@@ -1,24 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../components/Form.css';
 
 
 
 const Form = ({ onSubmit, url, textInput, onChange, userName, password, bearerToken }) => (
-  
+
   <form onSubmit={onSubmit}>
-    <input type="text" placeholder="URL" value={url} name="url" onChange={onChange} />
-    <label>GET<input type="radio" name="method" value="GET" onChange={onChange}></input></label>
-    <label>POST<input type="radio" name="method" value="POST" onChange={onChange}></input></label>
-    <label>PATCH<input type="radio" name="method" value="PATCH" onChange={onChange}></input></label>
-    <label>PUT<input type="radio" name="method" value="put" onChange={onChange}></input></label>
-    <label>DELETE<input type="radio" name="method" value="delete" onChange={onChange}></input></label>
-    <button>GO</button>
-    <textarea name="textInput" type="text" value={textInput} placeholder="Raw JSON" onChange={onChange}></textarea>
-    <h2>Basic Authorization</h2>
-    <input type="text" placeholder="Username" value={userName} name="userName" onChange={onChange} />
-    <input type="text" placeholder="Password" value={password} name="password" onChange={onChange} />
-    <h2>Bearer Token</h2>
-    <input type="text" placeholder="Bearer Token" value={bearerToken} name="bearerToken" onChange={onChange} />
+    <input type="text" className={styles.url} placeholder="URL" value={url} name="url" onChange={onChange} />
+    <section className={styles.radioButtons}>
+      <label>GET<input className={styles.radio} type="radio" name="method" value="GET" onChange={onChange}></input></label>
+      <label>POST<input className={styles.radio} type="radio" name="method" value="POST" onChange={onChange}></input></label>
+      <label>PATCH<input className={styles.radio} type="radio" name="method" value="PATCH" onChange={onChange}></input></label>
+      <label>PUT<input className={styles.radio} type="radio" name="method" value="PUT" onChange={onChange}></input></label>
+      <label>DELETE<input className={styles.radio} type="radio" name="method" value="DELETE" onChange={onChange}></input></label>
+      <button>GO</button>
+    </section>
+    <section className={styles.jsonAndAuth}>
+      <textarea name="textInput" type="text" value={textInput} placeholder="Raw JSON" onChange={onChange}></textarea>
+      <section className={styles.justAuth}>
+        <h2>Basic Authorization</h2>
+        <input type="text" placeholder="Username" value={userName} name="userName" onChange={onChange} />
+        <input type="text" placeholder="Password" value={password} name="password" onChange={onChange} />
+        <h2>Bearer Token</h2>
+        <input type="text" placeholder="Bearer Token" value={bearerToken} name="bearerToken" onChange={onChange} />
+      </section>
+    </section>
   </form>
 );
 

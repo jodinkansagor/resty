@@ -1,0 +1,24 @@
+form {
+  .jsonAndAuth {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .url {
+    margin: 5px;
+    margin-bottom: 20px;
+    width: 99%;
+  }
+
+  .radio {
+    display: none
+  }
+
+ 
+  
+  label {
+    margin: 5px;
+    padding: 5px;
+  }
+  
+}

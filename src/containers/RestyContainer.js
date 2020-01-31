@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Form from '../components/Form';
 import HistoryList from '../components/HistoryList';
+import Header from '../components/common/Header';
+import styles from '../containers/RestyContainer.css';
 
 
 export default class RestyContainer extends Component {
@@ -31,8 +33,11 @@ export default class RestyContainer extends Component {
     let headers;
     let body;
 
-    if (this.state.method === 'POST' || this.state.method === 'put' || this.state.method === 'PATCH') {
-      headers = { 'Content-Type': 'application/json' };
+    if (this.state.method === 'POST' || this.state.method === 'PUT' || this.state.method === 'PATCH') {
+      headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.state.bearerToken}`
+      };
       body = this.state.textInput;
     }
     console.log(headers, body);
@@ -46,9 +51,9 @@ export default class RestyContainer extends Component {
         console.log(res.body);
         return res.json();
       })
-    
+
       .then(response => this.setState({ response: JSON.stringify(response, null, 2) }));
-  
+
 
 
     this.setState(state => ({
@@ -67,18 +72,26 @@ export default class RestyContainer extends Component {
     return (
 
       <>
-        <Form
-          url={url}
-          textInput={textInput}
-          userName={userName}
-          password={password}
-          method={method}
-          bearerToken={bearerToken}
-          onSubmit={this.handleSubmit}
-          onChange={this.handleChange}
-        />
-        <HistoryList historyList={historyList} />
-        <pre>{this.state.response}</pre>
+        <Header />
+        <section className={styles.wholeSection}>
+          <section className={styles.history}>
+            <h2>History</h2>
+            <HistoryList historyList={historyList} />
+          </section>
+          <section className={styles.formAndResults}>
+            <Form
+              url={url}
+              textInput={textInput}
+              userName={userName}
+              password={password}
+              method={method}
+              bearerToken={bearerToken}
+              onSubmit={this.handleSubmit}
+              onChange={this.handleChange}
+            />
+            <pre>{this.state.response}</pre>
+          </section>
+        </section>
       </>
     );
   }
