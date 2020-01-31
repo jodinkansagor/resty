@@ -12,12 +12,13 @@ export default class RestyContainer extends Component {
     bearerToken: '',
     method: '',
     historyList: [],
+    response: '',
   }
 
   handleChange = ({ target }) => {
-    if(target.type === 'text') {
+    if (target.type === 'text') {
       this.setState({ [target.name]: target.value });
-    } else if(target.type === 'radio') {
+    } else if (target.type === 'radio') {
       this.setState({ [target.name]: target.value });
     } else if (target.type === 'textarea') {
       this.setState({ textInput: target.value });
@@ -26,6 +27,28 @@ export default class RestyContainer extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+
+    let headers;
+    let body;
+
+    if (this.state.method === 'post') {
+      headers = { 'Content-Type': 'application/json' };
+      body = this.state.textInput;
+    }
+
+    fetch(this.state.url, {
+      method: this.state.method,
+      headers: headers,
+      body: body
+    })
+      .then(res => {
+        console.log(res.body);
+        return res.json();
+      })
+    
+      .then(response => this.setState({ response: JSON.stringify(response, null, 2) }));
+  
+
 
     this.setState(state => ({
       historyList: [
@@ -41,9 +64,9 @@ export default class RestyContainer extends Component {
     const { url, method, textInput, userName, password, bearerToken, historyList
     } = this.state;
     return (
-      
+
       <>
-        <Form 
+        <Form
           url={url}
           textInput={textInput}
           userName={userName}
@@ -51,9 +74,10 @@ export default class RestyContainer extends Component {
           method={method}
           bearerToken={bearerToken}
           onSubmit={this.handleSubmit}
-          onChange={this.handleChange}  
+          onChange={this.handleChange}
         />
-        <HistoryList historyList={historyList}/>
+        <HistoryList historyList={historyList} />
+        <p>{this.state.response}</p>
       </>
     );
   }

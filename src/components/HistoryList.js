@@ -5,7 +5,7 @@ import HistoryListItem from './HistoryListItem';
 const HistoryList = ({ historyList }) => {
   const historyListItemElements = historyList.map((historyListItem, i) => (
     <li key={i}>
-      <HistoryListItem method={historyListItem.method} historyUrl={historyListItem.historyUrl} />
+      <HistoryListItem method={historyListItem.method} url={historyListItem.url} />
     </li>
   ));
 
@@ -19,7 +19,7 @@ const HistoryList = ({ historyList }) => {
 HistoryList.propTypes = {
   historyList: PropTypes.arrayOf(PropTypes.shape({
     method: PropTypes.string.isRequired,
-    historyUrl: PropTypes.string.isRequired
+    url: PropTypes.string.isRequired
   }))
 };
 
