@@ -13,7 +13,7 @@ const Form = ({ onSubmit, url, textInput, onChange, userName, password, bearerTo
     <label>PUT<input type="radio" name="method" value="put" onChange={onChange}></input></label>
     <label>DELETE<input type="radio" name="method" value="delete" onChange={onChange}></input></label>
     <button>GO</button>
-    <textarea name="textInput" type="text" value={textInput} onChange={onChange}></textarea>
+    <textarea name="textInput" type="text" value={textInput} placeholder="Raw JSON" onChange={onChange}></textarea>
     <h2>Basic Authorization</h2>
     <input type="text" placeholder="Username" value={userName} name="userName" onChange={onChange} />
     <input type="text" placeholder="Password" value={password} name="password" onChange={onChange} />

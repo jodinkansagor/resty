@@ -31,10 +31,11 @@ export default class RestyContainer extends Component {
     let headers;
     let body;
 
-    if (this.state.method === 'post') {
+    if (this.state.method === 'post' || this.state.method === 'put' || this.state.method === 'patch' || this.state.method === 'delete') {
       headers = { 'Content-Type': 'application/json' };
       body = this.state.textInput;
     }
+    console.log(headers, body);
 
     fetch(this.state.url, {
       method: this.state.method,
@@ -77,7 +78,7 @@ export default class RestyContainer extends Component {
           onChange={this.handleChange}
         />
         <HistoryList historyList={historyList} />
-        <p>{this.state.response}</p>
+        <pre>{this.state.response}</pre>
       </>
     );
   }
