@@ -4,16 +4,16 @@ import styles from '../components/Form.css';
 
 
 
-const Form = ({ onSubmit, url, textInput, onChange, userName, password, bearerToken }) => (
+const Form = ({ onSubmit, url, textInput, onChange, userName, password, bearerToken, method }) => (
 
   <form onSubmit={onSubmit}>
     <input type="text" className={styles.url} placeholder="URL" value={url} name="url" onChange={onChange} />
     <section className={styles.radioButtons}>
-      <label><input className={styles.radio} type="radio" name="method" value="GET" onChange={onChange}></input><span>GET</span></label>
-      <label><input className={styles.radio} type="radio" name="method" value="POST" onChange={onChange}></input><span>POST</span></label>
-      <label><input className={styles.radio} type="radio" name="method" value="PATCH" onChange={onChange}></input><span>PATCH</span></label>
-      <label><input className={styles.radio} type="radio" name="method" value="PUT" onChange={onChange}></input><span>PUT</span></label>
-      <label><input className={styles.radio} type="radio" name="method" value="DELETE" onChange={onChange}></input><span>DELETE</span></label>
+      <label><input className={styles.radio} type="radio" checked={method === 'GET'} name="method" value="GET" onChange={onChange}></input><span>GET</span></label>
+      <label><input className={styles.radio} type="radio" checked={method === 'POST'} name="method" value="POST" onChange={onChange}></input><span>POST</span></label>
+      <label><input className={styles.radio} type="radio" checked={method === 'PATCH'} name="method" value="PATCH" onChange={onChange}></input><span>PATCH</span></label>
+      <label><input className={styles.radio} type="radio" checked={method === 'PUT'} name="method" value="PUT" onChange={onChange}></input><span>PUT</span></label>
+      <label><input className={styles.radio} type="radio" checked={method === 'DELETE'} name="method" value="DELETE" onChange={onChange}></input><span>DELETE</span></label>
       <button>GO</button>
     </section>
     <section className={styles.jsonAndAuth}>
@@ -30,6 +30,7 @@ const Form = ({ onSubmit, url, textInput, onChange, userName, password, bearerTo
 );
 
 Form.propTypes = {
+  method: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   userName: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,

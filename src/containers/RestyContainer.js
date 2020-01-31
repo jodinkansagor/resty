@@ -60,16 +60,18 @@ export default class RestyContainer extends Component {
       historyList: [
         ...state.historyList, {
           method: state.method,
-          url: state.url
+          url: state.url,
+          textInput: state.textInput
         }
       ]
     }));
 
   }
-  updateStateFromHistory = (method, url) => {
+  updateStateFromHistory = (method, url, textInput) => {
     this.setState({
       method,
-      url
+      url,
+      textInput
     });
   };
 

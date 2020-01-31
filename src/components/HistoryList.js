@@ -7,7 +7,7 @@ const HistoryList = ({ historyList, onClick }) => {
   const historyListItemElements = historyList.map((historyListItem, i) => (
 
     <li key={i}>
-      <HistoryListItem method={historyListItem.method} url={historyListItem.url} onClick={onClick} />
+      <HistoryListItem method={historyListItem.method} textInput={historyListItem.textInput} url={historyListItem.url} onClick={onClick} />
     </li>
   ));
 
@@ -21,6 +21,7 @@ const HistoryList = ({ historyList, onClick }) => {
 HistoryList.propTypes = {
   onClick: PropTypes.func.isRequired,
   historyList: PropTypes.arrayOf(PropTypes.shape({
+    textInput: PropTypes.string.isRequired,
     method: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired
   }))
