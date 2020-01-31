@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import HistoryListItem from './HistoryListItem';
+import styles from './HistoryList.css';
 
-const HistoryList = ({ historyList, updateStateFromHistory }) => {
+const HistoryList = ({ historyList, onClick }) => {
   const historyListItemElements = historyList.map((historyListItem, i) => (
-    <li key={i} onClick={updateStateFromHistory}>
-      <HistoryListItem method={historyListItem.method} url={historyListItem.url} />
+
+    <li key={i}>
+      <HistoryListItem method={historyListItem.method} url={historyListItem.url} onClick={onClick} />
     </li>
   ));
 
@@ -17,7 +19,7 @@ const HistoryList = ({ historyList, updateStateFromHistory }) => {
 };
 
 HistoryList.propTypes = {
-  updateStateFromHistory: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   historyList: PropTypes.arrayOf(PropTypes.shape({
     method: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired

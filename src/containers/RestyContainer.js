@@ -64,7 +64,14 @@ export default class RestyContainer extends Component {
         }
       ]
     }));
+
   }
+  updateStateFromHistory = (method, url) => {
+    this.setState({
+      method,
+      url
+    });
+  };
 
   render() {
     const { url, method, textInput, userName, password, bearerToken, historyList
@@ -76,7 +83,7 @@ export default class RestyContainer extends Component {
         <section className={styles.wholeSection}>
           <section className={styles.history}>
             <h2>History</h2>
-            <HistoryList historyList={historyList} />
+            <HistoryList historyList={historyList} onClick={this.updateStateFromHistory} />
           </section>
           <section className={styles.formAndResults}>
             <Form

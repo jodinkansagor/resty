@@ -9,11 +9,11 @@ const Form = ({ onSubmit, url, textInput, onChange, userName, password, bearerTo
   <form onSubmit={onSubmit}>
     <input type="text" className={styles.url} placeholder="URL" value={url} name="url" onChange={onChange} />
     <section className={styles.radioButtons}>
-      <label>GET<input className={styles.radio} type="radio" name="method" value="GET" onChange={onChange}></input></label>
-      <label>POST<input className={styles.radio} type="radio" name="method" value="POST" onChange={onChange}></input></label>
-      <label>PATCH<input className={styles.radio} type="radio" name="method" value="PATCH" onChange={onChange}></input></label>
-      <label>PUT<input className={styles.radio} type="radio" name="method" value="PUT" onChange={onChange}></input></label>
-      <label>DELETE<input className={styles.radio} type="radio" name="method" value="DELETE" onChange={onChange}></input></label>
+      <label><input className={styles.radio} type="radio" name="method" value="GET" onChange={onChange}></input><span>GET</span></label>
+      <label><input className={styles.radio} type="radio" name="method" value="POST" onChange={onChange}></input><span>POST</span></label>
+      <label><input className={styles.radio} type="radio" name="method" value="PATCH" onChange={onChange}></input><span>PATCH</span></label>
+      <label><input className={styles.radio} type="radio" name="method" value="PUT" onChange={onChange}></input><span>PUT</span></label>
+      <label><input className={styles.radio} type="radio" name="method" value="DELETE" onChange={onChange}></input><span>DELETE</span></label>
       <button>GO</button>
     </section>
     <section className={styles.jsonAndAuth}>
