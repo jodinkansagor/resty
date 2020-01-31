@@ -1,0 +1,21 @@
+
+.wholeSection {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  background-color: 	#FFFAFA;
+  height: 90vh;
+
+  pre {
+    width: 75vw;
+  }
+
+  .history {
+    font-family: 'Source Sans Pro', sans-serif;
+
+
+    background-color: #eeeeee;
+    padding: 5px;
+    margin: 5px;
+    margin-left: 0px;
+  }
+}

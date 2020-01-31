@@ -1,0 +1,11 @@
+header {
+  background-color: #45A29E;
+  color: #c5c6c7;
+  font-family: 'Martel Sans', sans-serif;
+ 
+  h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 5px;
+  }
+}

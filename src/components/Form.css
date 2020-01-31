@@ -1,0 +1,55 @@
+form {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #eeeeee;
+  color: #0b0c10;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  
+
+  .jsonAndAuth {
+    display: flex;
+    flex-direction: row;
+
+    input[type=text] {
+      margin: 2px;
+    }
+  }
+
+  .url {
+    margin: 5px;
+    margin-bottom: 20px;
+    width: 98%;
+  }
+
+  .radio {
+    display: none;
+  }
+  
+  input[type=radio]+span {
+    padding: 7px;
+  }
+
+  input[type=radio]:checked+span {
+    background-color: #45a29e;
+    color: #c5c6c7
+  }
+
+  input[type=radio]:hover+span {
+    background-color: #c5c6c7;
+  }
+  
+  label {
+    cursor: pointer;
+    margin: 10px;
+  }
+
+  button {
+    cursor: pointer;
+  }
+  
+  textarea {
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 5px;
+  }
+}
